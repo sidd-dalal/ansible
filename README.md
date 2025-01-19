@@ -21,7 +21,7 @@ sudo apt install ansible -y
 
 ### 2. Configure the Inventory File
 Add the target servers to your Ansible inventory file, located at /etc/ansible/hosts. Below is an example configuration:
-
+---
 [servers]
 server_1 ansible_host=<server_1_public_ip>
 server_2 ansible_host=<server_2_public_ip>
@@ -30,6 +30,7 @@ server_2 ansible_host=<server_2_public_ip>
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=ubuntu
 ansible_ssh_private_key_file=<path_to_private_key>
+---
 
 ### 3. Ensure SSH Access
 Configure passwordless SSH access from your local machine to the target servers using the private key specified in the inventory file.
