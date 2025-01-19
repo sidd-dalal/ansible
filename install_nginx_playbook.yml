@@ -1,5 +1,5 @@
 ---
--name: Install Nginx and Start Service
+- name: Install Nginx and Start Service
   hosts: all
   become: yes
   tasks:
