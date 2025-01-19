@@ -39,14 +39,21 @@ Configure passwordless SSH access from your local machine to the target servers 
 ## Ansible Commands
 
 Test Connectivity: Before running the playbook, verify connectivity to the target servers:
+```sh
 ansible servers -m ping
+```
 
 Check memory usage on target servers:
+```sh
 ansible servers -a "free -h"
+```
 
 List inventory details:
+```sh
 ansible-inventory --list
+```
 
-Run the Playbook
-Execute the playbook to install and start Nginx on the target servers:
+Run the playbook to install and start Nginx on the target servers:
+```sh
 ansible-playbook install_nginx_playbook.yml
+```
