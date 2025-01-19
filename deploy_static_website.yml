@@ -1,6 +1,6 @@
 ---
 - name: Install Nginx and serve static website
-  hosts: [web]
+  hosts: web
   become: yes
   tasks:
     - name: Install Nginx
