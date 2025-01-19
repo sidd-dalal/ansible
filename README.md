@@ -27,7 +27,10 @@ Add the target servers to your Ansible inventory file, located at /etc/ansible/h
 server_1 ansible_host=<server_1_public_ip>
 server_2 ansible_host=<server_2_public_ip>
 
-[servers:vars]
+[web]
+server_3 ansible_host=<server_3_public_ip>
+
+[all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_user=ubuntu
 ansible_ssh_private_key_file=<path_to_private_key>
@@ -56,4 +59,6 @@ ansible-inventory --list
 Run the playbook to install and start Nginx on the target servers:
 ```sh
 ansible-playbook install_nginx_playbook.yml
+ansible-playbook deploy_static_website.yml
 ```
+

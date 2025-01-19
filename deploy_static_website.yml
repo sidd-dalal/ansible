@@ -1,0 +1,30 @@
+---
+- name: Install Nginx and serve static website
+  hosts: [web]
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: Start and enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy web page
+      copy:
+        src: /home/ansible/playbooks/index.html
+        dest: /var/www/html/index.html
+      notify:
+        - Restart Nginx
+
+# Handlers are tasks that are triggered by other tasks using the 'notify' directive.
+# They are typically used to restart services after configuration changes.
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
